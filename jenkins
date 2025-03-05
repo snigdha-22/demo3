@@ -11,14 +11,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project'
-                sh 'javac hello_world.java'
+                sh 'javac hello.java'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running test'
-                sh 'java hello_world'
+                sh 'java helloworld'
             }
         }
 

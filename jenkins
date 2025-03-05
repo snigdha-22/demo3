@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/snigdha-22/demo3.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo 'Building the project'
+                sh 'javac hello_world.java'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running test'
+                sh 'java hello_world'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the project...'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed'
+        }
+    }
+}
+
+
+
+
+
+
+
